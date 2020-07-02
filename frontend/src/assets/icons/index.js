@@ -1,6 +1,8 @@
 import { sygnet } from './sygnet'
 import { logo } from './logo'
 import { logoNegative } from './logo-negative'
+import { defaultLogo } from './default-logo'
+import { smallLogo } from './small-logo'
 
 import {
   cibSkype,
@@ -133,7 +135,9 @@ import {
 export const icons = Object.assign({}, {
   sygnet,
   logo,
-  logoNegative
+  logoNegative,
+  defaultLogo,
+  smallLogo,
 }, {
   cilAlignCenter,
   cilAlignLeft,
