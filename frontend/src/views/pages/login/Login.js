@@ -1,10 +1,12 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom'
 import {
   CButton,
   CCard,
   CCardBody,
   CCardGroup,
+  CCardHeader,
   CCol,
   CContainer,
   CForm,
@@ -15,6 +17,16 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
+const responseFacebook = (response) => {
+  console.log(response);
+}
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 const Login = () => {
   return (
@@ -46,10 +58,23 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
-                        <CButton color="primary" className="px-4">Login</CButton>
+                        <FacebookLogin
+                          appId=""
+                          size="metro"
+                          autoLoad={false}
+                          fields="name,email,picture"
+                          callback={responseFacebook}
+                          cssClass="btn btn-facebook"
+                          icon="fa-facebook"
+                        />
                       </CCol>
-                      <CCol xs="6" className="text-right">
-                        <CButton color="link" className="px-0">Forgot password?</CButton>
+                      <CCol xs="6">
+                      <GoogleLogin
+                          clientId=""
+                          onSuccess={responseGoogle}
+                          onFailure={responseGoogle}
+                          cookiePolicy={'single_host_origin'}
+                        />
                       </CCol>
                     </CRow>
                   </CForm>
@@ -74,5 +99,6 @@ const Login = () => {
     </div>
   )
 }
+
 
 export default Login
